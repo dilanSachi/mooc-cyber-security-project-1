@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store.apps.StoreConfig'
+    'store.apps.StoreConfig',
+    # 'defender'
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'defender.middleware.FailedLoginMiddleware'
 ]
 
 ROOT_URLCONF = 'webshop.urls'
@@ -150,3 +152,5 @@ SESSION_COOKIE_SAMESITE = None
 #         },
 #     }
 # }
+
+DEFENDER_REDIS_URL="redis://localhost:6380/0"
