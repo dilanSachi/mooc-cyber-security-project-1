@@ -1,0 +1,26 @@
+[
+    {
+        "model": "store.item",
+        "fields": {
+            "item_code": "123",
+            "name": "pen",
+            "price": 12.50
+        }
+    },
+    {
+        "model": "store.item",
+        "fields": {
+            "item_code": "124",
+            "name": "book",
+            "price": 32.67
+        }
+    },
+    {
+        "model": "store.order",
+        "fields": {
+            "item_code": "1",
+            "item_count": 3,
+            "user": 2
+        }
+    }
+]

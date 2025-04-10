@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Flawed Web Store</title>
+</head>
+
+
+<body>
+    <h1>Flawed Web Store</h1>
+
+    <table>
+        <tr>
+            <th style="text-align:left">Username:
+            <td>{{user.username}}
+    </table>
+
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>Item Code</th>
+            <th>Item Name</th>
+            <th>Price</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{item.item_code}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <br>
+
+
+    <h2>Place an order</h2>
+
+        <form action='order' method="POST">
+            {% csrf_token %}
+			<p>Item Code : <input type="text" name="item_code"/></p>
+            <p>Item Amount : <input type="text" name="amount"/></p>
+            <input type="submit" value="Send"/>
+        </form>
+
+        <br>
+        <br>
+
+
+    <form action='logout/' method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Logout" />
+    </form>
+
+    <br>
+    <br>
+
+</body>
+
+
+</body>
+
+</html>
