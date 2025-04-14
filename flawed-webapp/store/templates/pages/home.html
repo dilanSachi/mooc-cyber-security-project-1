@@ -28,7 +28,6 @@
             <td>{{item.item_code}}</td>
             <td>{{item.name | safe}}</td>
             <!-- <td>{{item.name}}</td> -->
-            <!-- 2); update store_item set name='<script>alert("You have been XSS attacked")</script>' where item_code=123;-- -->
             <td>{{item.price}}</td>
         </tr>
         {% endfor %}
