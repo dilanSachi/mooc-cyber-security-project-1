@@ -25,10 +25,12 @@ def admin(request):
 def order(request):
     # logger.info("Received new order: " + str(request.body))
     user_id = getattr(User.objects.filter(username=request.user)[0], 'id')
-    sql_statement = "INSERT INTO store_order('user_id', 'item_code_id', 'item_count') VALUES (" + str(user_id) + ", " + str(request.POST.get('item_code')) + ", " + str(request.POST.get('amount')) + ")"
     with sqlite3.connect("db.sqlite3") as db:
         cursor = db.cursor()
-        cursor.executescript(sql_statement) # use execute with parameterized query option.
+        sql_statement = "INSERT INTO store_order('user_id', 'item_code_id', 'item_count') VALUES (" + str(user_id) + ", " + str(request.POST.get('item_code')) + ", " + str(request.POST.get('amount')) + ")"
+        cursor.executescript(sql_statement)
+        # sql_statement = "INSERT INTO store_order('user_id', 'item_code_id', 'item_count') VALUES (?, ?, ?)"
+        # cursor.execute(sql_statement, (str(user_id), str(request.POST.get('item_code')), str(request.POST.get('amount'))))
         db.commit()
         cursor.close()
     return redirect('/store/')
